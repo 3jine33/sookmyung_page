@@ -1,0 +1,25 @@
+<!--http://127.0.0.1:8000/main/update/1-->
+{% extends 'base.html' %}
+
+{% block content %}
+    <!DOCTYPE html>
+    <html>
+        <head>
+
+        </head>
+
+        <body>
+            <h1>notice_update.html</h1>
+                <form method="POST">
+                    {% csrf_token %}
+                    제목 : {{ form.title }} <br>   <!--title 입력 폼-->
+                    내용 : {{ form.describe }}<br>  <!--describe 입력 폼-->
+    
+                    <input type="submit" value="등록">
+                </form>
+    
+        </body>
+    </html>
+
+
+{% endblock %}

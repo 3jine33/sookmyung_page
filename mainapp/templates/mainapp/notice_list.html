@@ -1,0 +1,29 @@
+<!--http://127.0.0.1:8000/main/list/-->
+{% extends 'base.html' %}
+
+{% block content %}
+    <!DOCTYPE html>
+    <html>
+        <head>
+
+        </head>
+
+        <body>
+            <h1>notice_list.html</h1>
+
+            <!--notice 게시판의 모든 글 불러오기&출력-->
+            {% for notice in notices.all %}
+                <a href="{% url 'mainapp:notice_detail' notice.id %}">{{ notice.title }}</a> <br>
+                {{ notice.date }}
+                <br><br>
+            {% endfor %}
+
+            <!--superuser에게만 글쓰기 권한 주기-->
+            {% if user.is_superuser %}
+                <a href="{% url 'mainapp:notice_register' %}">글쓰기</a><br>
+            {% endif %}
+        </body>
+    </html>
+
+
+{% endblock %}
