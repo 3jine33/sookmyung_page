@@ -10,6 +10,19 @@
 
         <body>
             <h1>book_list.html</h1>
+
+            {% for book in books.all %}
+                <a href="{% url 'libraryapp:book_detail' book.id %}">{{ book.title }}</a> <br>
+                {{ book.author }} <br>
+                {{ book.publisher }}<br>
+                <br><br>
+            {% endfor %}
+
+            <!--superuser에게만 글쓰기 권한 주기-->
+            {% if user.is_superuser %}
+                <a href="{% url 'libraryapp:book_register' %}">글쓰기</a><br>
+            {% endif %}
+
         </body>
     </html>
 

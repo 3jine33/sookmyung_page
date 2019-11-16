@@ -2,7 +2,6 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Notice
 from .forms import NoticeForm
-from django.contrib.auth.models import User
 
 
 # Create your views here.
@@ -56,7 +55,3 @@ def notice_delete(request, notice_id):
     notice = get_object_or_404(Notice, pk=notice_id)
     notice.delete()
     return redirect('mainapp:notice_list')
-
-
-    return render(request, 'mainapp/notice_list.html')
-

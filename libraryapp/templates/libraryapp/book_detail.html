@@ -9,6 +9,26 @@
 
         <body>
             <h1>book_detail.html</h1>
+            {{ book.title }}<br> <!--책 제목-->
+            {{ book.author }}<br> <!--책 저자-->
+            {{ book.category }}<br> <!--책 카테고리-->
+            {{ book.publisher }}<br> <!--책 출판사-->
+            {{ book.pub_year }}<br> <!--책 출판년도-->
+            {{ book.location }}<br> <!--책 소장위치-->
+            {{ book.describe }}<br> <!--책 소개-->
+            <img src="{{ book.photo.url }}" width=200><br> <!--책 사진-->
+            
+            
+            <br>
+
+
+            <!--수정하기 버튼-->
+            <!--superuser만 수정버튼 보임-->
+            {% if user.is_superuser %}
+                <a href="{% url 'libraryapp:book_update' book.id %}">수정하기</a><br>
+                <a href="{% url 'libraryapp:book_delete' book.id %}">삭제하기</a><br>
+
+            {% endif %}
         </body>
     </html>
 

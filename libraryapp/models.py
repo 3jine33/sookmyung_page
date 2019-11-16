@@ -10,13 +10,15 @@ class Book(models.Model):
         ('IT', 'IT'),
     )
 
-    title= models.CharField(max_length=255)
-    author= models.CharField(max_length=255)
-    category=models.CharField(max_length=10, choices=CATEGORY)
-    publisher= models.CharField(max_length=255)
-    pub_year= models.IntegerField()
-    location= models.CharField(max_length=255)
-    describe = models.TextField()
+    title= models.CharField(max_length=255)  ##책 제목 
+    author= models.CharField(max_length=255)  ## 책 저자
+    category=models.CharField(max_length=10, choices=CATEGORY)  ##책 카테고리
+    publisher= models.CharField(max_length=255)  ## 책 출판사
+    pub_year= models.IntegerField()  ##책 출판년도
+    location= models.CharField(max_length=255)  ##책 소장위치
+    describe = models.TextField()  ##책 소개
+    photo = models.ImageField(null=True,blank=True, upload_to='library/') ##책 사진
+
 
     def __str__(self):
         return self.title    

@@ -1,26 +1,56 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
+from .models import Book
+from .forms import BookForm
+
 
 # Create your views here.
 
 #책 리스트
 def book_list(request):
-    return render(request, 'libraryapp/book_list.html')
+    books = Book.objects               
+    return render(request, 'libraryapp/book_list.html', {'books' : books})
 
 #책 상세페이지 (R)
-def book_detail(request):
-    return render(request, 'libraryapp/book_detail.html')
+def book_detail(request, book_id):    
+    book = get_object_or_404(Book, pk=book_id)
+    return render(request, 'libraryapp/book_detail.html',{'book': book})
+
 
 #책 등록 (C)
+@login_required
 def book_register(request):
-    return render(request, 'libraryapp/book_register.html')
+    if request.method == 'POST':
+        form = BookForm(request.POST, request.FILES)
+        if form.is_valid():
+            book = form.save(commit=False)
+            book.save()
+            return redirect('libraryapp:book_list')
+    else : 
+        form=BookForm()
+        return render(request, 'libraryapp/book_register.html', {'form':form})
+
 
 #책 수정(U)
-def book_update(request):
-    return render(request, 'libraryapp/book_update.html')
+@login_required
+def book_update(request, book_id):
+    book = get_object_or_404(Book, pk=book_id)
+    if request.method=='POST':
+        form = BookForm(request.POST, request.FILES, instance=book)
+        if form.is_valid():
+            book = form.save(commit=False)
+            book.save()
+            return redirect('libraryapp:book_detail', book_id=book.pk)    
+    else:
+        form = BookForm(instance=book)
+        return render(request, 'libraryapp/book_update.html', {'form':form})
 
 #책 삭제(D)
-def book_delete(request):
-    return render(request, 'libraryapp/book_list.html')
+@login_required
+def book_delete(request, book_id):
+    book = get_object_or_404(Book, pk=book_id)
+    book.delete()
+    return redirect('libraryapp:book_list')
 
 #책 필터링
 def book_result(request):

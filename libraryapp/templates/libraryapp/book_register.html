@@ -10,6 +10,21 @@
 
         <body>
             <h1>book_register.html</h1>
+            <form method="POST" enctype="multipart/form-data" novalidate>
+                {% csrf_token %}
+                제목 : {{ form.title }} <br>   <!--title 입력 폼-->
+                저자 : {{ form.author }}<br>  <!--author 입력 폼-->
+                카테고리 : {{ form.category }}<br>
+                출판사 : {{ form.publisher }}<br>
+                출판년도 : {{ form.pub_year }}<br>
+                소장위치 : {{ form.location }}<br>
+                책 소개 : {{ form.describe }}<br>
+                책 사진 : {{ form.photo }}<br>
+
+
+                <input type="submit" value="등록">
+            </form>
+    
         </body>
     </html>
 
