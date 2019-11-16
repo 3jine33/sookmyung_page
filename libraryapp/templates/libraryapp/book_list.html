@@ -1,4 +1,4 @@
-
+<!--http://127.0.0.1:8000/library/list/-->
 {% extends 'base.html' %}
 
 {% block content %}
@@ -11,13 +11,22 @@
         <body>
             <h1>book_list.html</h1>
 
+            <!--필터링(검색)-->    
+            <form action="{% url 'libraryapp:book_result' %}" method="get">
+                <input type="search" placeholder="책제목을 입력하세요" name="query">
+                <input type="submit" name="" value="검색">
+            </form>
+
+
+            <!--글 목록-->
             {% for book in books.all %}
                 <a href="{% url 'libraryapp:book_detail' book.id %}">{{ book.title }}</a> <br>
                 {{ book.author }} <br>
                 {{ book.publisher }}<br>
-                <br><br>
+                <br>
             {% endfor %}
 
+            <br>
             <!--superuser에게만 글쓰기 권한 주기-->
             {% if user.is_superuser %}
                 <a href="{% url 'libraryapp:book_register' %}">글쓰기</a><br>

@@ -54,4 +54,12 @@ def book_delete(request, book_id):
 
 #책 필터링
 def book_result(request):
-    return render(request, 'libraryapp/book_result.html')
+    book_object = Book.objects
+    query = request.GET.get('query','')
+    
+    if query:
+        book_object = book_object.filter(title__contains=query)
+        return render(request,'libraryapp/book_result.html',{'result':book_object} )
+    else :
+        return redirect('libraryapp:book_list')
+

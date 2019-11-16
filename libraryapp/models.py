@@ -5,8 +5,8 @@ from django.contrib.auth.models import User
 
 class Book(models.Model):
     CATEGORY = (
-        ('소설', '소설'),
-        ('사회/문화', '사회/문화'),
+        ('fiction', '소설'),
+        ('society/culture', '사회/문화'),
         ('IT', 'IT'),
     )
 

@@ -11,6 +11,29 @@
 
         <body>
             <h1>book_result.html</h1>
+
+            <!--필터링(검색)-->    
+            <form action="{% url 'libraryapp:book_result' %}" method="get">
+                    <input type="search" placeholder="책제목을 입력하세요" name="query">
+                    <input type="submit" name="" value="검색">
+                </form>
+    
+
+            <!--검색 결과-->
+            ----검색결과----<br><br>
+            {% for result in result.all %}
+                <a href="{% url 'libraryapp:book_detail' result.id %}">{{ result.title }}</a> <br>
+                {{ result.author }} <br>
+                {{ result.publisher }}<br>
+                <br>
+            {% endfor %}
+
+            <br>
+            <!--superuser에게만 글쓰기 권한 주기-->
+            {% if user.is_superuser %}
+                <a href="{% url 'libraryapp:book_register' %}">글쓰기</a><br>
+            {% endif %}
+
         </body>
     </html>
 
