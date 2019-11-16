@@ -1,4 +1,5 @@
-
+<!--http://127.0.0.1:8000/main/detail/1-->
+<!--맨 끝의 숫자는 게시물 번호!-->
 {% extends 'base.html' %}
 
 {% block content %}
@@ -19,6 +20,8 @@
             <!--superuser만 수정버튼 보임-->
             {% if user.is_superuser %}
                 <a href="{% url 'mainapp:notice_update' notice.id %}">수정하기</a><br>
+                <a href="{% url 'mainapp:notice_delete' notice.id %}">삭제하기</a><br>
+
             {% endif %}
         </body>
     </html>

@@ -22,6 +22,7 @@ def notice_detail(request, notice_id):
     return render(request, 'mainapp/notice_detail.html',{'notice': notice})
 
 #공지 등록 (C)
+@login_required
 def notice_register(request):
     if request.method == 'POST':
         form = NoticeForm(request.POST, request.FILES)
@@ -35,6 +36,7 @@ def notice_register(request):
 
 
 #공지 수정(U)
+@login_required
 def notice_update(request, notice_id):
     notice = get_object_or_404(Notice, pk=notice_id)
     if request.method=='POST':
@@ -49,6 +51,12 @@ def notice_update(request, notice_id):
 
 
 #공지 삭제(D)
-def notice_delete(request):
+@login_required
+def notice_delete(request, notice_id):
+    notice = get_object_or_404(Notice, pk=notice_id)
+    notice.delete()
+    return redirect('mainapp:notice_list')
+
+
     return render(request, 'mainapp/notice_list.html')
 

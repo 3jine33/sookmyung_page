@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 
 # Create your views here.
 
@@ -17,7 +17,6 @@ def book_register(request):
 #책 수정(U)
 def book_update(request):
     return render(request, 'libraryapp/book_update.html')
-
 
 #책 삭제(D)
 def book_delete(request):
