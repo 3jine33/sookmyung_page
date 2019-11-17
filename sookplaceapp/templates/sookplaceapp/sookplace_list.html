@@ -10,6 +10,18 @@
 
         <body>
             <h1>sookplace_list.html</h1>
+
+            <!--글목록-->
+            {% for sookplace in sookplaces.all %}
+                <a href="{% url 'sookplaceapp:sookplace_detail' sookplace.id %}">{{ sookplace.title }}</a>
+                {{ sookplace.user }}
+                {{ sookplace.date }}
+                <br>
+            {% endfor %}
+
+            <br>
+            <a href="{% url 'sookplaceapp:sookplace_register' %}">글쓰기</a>
+
         </body>
     </html>
 

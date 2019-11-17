@@ -8,6 +8,6 @@ urlpatterns = [
     path('list/', views.sookplace_list, name='sookplace_list'),                   
     path('detail/<int:sookplace_id>', views.sookplace_detail, name='sookplace_detail'),                        
     path('register/', views.sookplace_register, name='sookplace_register'),                        
-    path('update/<int:sookplace_id>', views.sookplace_update, name='sookplace_upate'), 
+    path('update/<int:sookplace_id>', views.sookplace_update, name='sookplace_update'), 
     path('delete/<int:sookplace_id>', views.sookplace_delete, name='sookplace_delete'),             
 ]
