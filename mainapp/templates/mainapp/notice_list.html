@@ -13,8 +13,8 @@
 
             <!--notice 게시판의 모든 글 불러오기&출력-->
             {% for notice in notices.all %}
-                <a href="{% url 'mainapp:notice_detail' notice.id %}">{{ notice.title }}</a> <br>
-                {{ notice.date }}
+                <a href="{{notice.link}}">{{ notice.title }}</a> <br>
+                
                 <br><br>
             {% endfor %}
 
