@@ -6,24 +6,63 @@
     <!DOCTYPE html>
     <html>
         <head>
-
+            <style>
+                .container{
+                    text-align: right;
+                    margin-top:150px;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    position: relative;
+                }
+                .title{
+                    float: left;
+                    margin-left: 70px;
+                    font-size: 26pt;
+                    font-weight: bold;
+                }
+                .libContext{
+                    font-size: 11.5pt;
+                    text-align: left;
+                    margin-left:150px;
+                    margin-top:50px;
+                    position: relative;
+                }
+                .textRight{
+                    text-align: right;
+                    width: 1300px;
+                    position: relative;
+                    font-weight: bold;
+                    font-size: 10.6pt;
+                }
+            </style>
         </head>
 
         <body>
-            <h1>book_update.html</h1>
+            <h1></h1>
+            <div class = "container">
+                <p class="title">이달의 도서 수정하기</p>
+            </div>
+
+            <br>
+
             <form method="POST" enctype="multipart/form-data" novalidate>
-                {% csrf_token %}
-                제목 : {{ form.title }} <br>   <!--title 입력 폼-->
-                저자 : {{ form.author }}<br>  <!--author 입력 폼-->
-                카테고리 : {{ form.category }}<br>
-                출판사 : {{ form.publisher }}<br>
-                출판년도 : {{ form.pub_year }}<br>
-                소장위치 : {{ form.location }}<br>
-                책 소개 : {{ form.describe }}<br>
-                책 사진 : {{ form.photo }}<br>
+                <div class="libContext">
+                    {% csrf_token %}
+                    제   목 : {{ form.title }}    <!--title 입력 폼-->
+                    저   자 : {{ form.author }}  <!--author 입력 폼-->
+                    카테고리 : {{ form.category }}
+                    출 판 사 : {{ form.publisher }}<br><br>
+                    출판년도 : {{ form.pub_year }}
+                    소장위치 : {{ form.location }}<br><br>
+                    책 사 진 : {{ form.photo }}
+                    <br><br>
+                    책 소 개 : {{ form.describe }}<br>
+                    <br>
+                </div>
 
-
-                <input type="submit" value="등록">
+                <div class = "textRight">
+                    <input type="submit" value="등록">
+                </div>
             </form>
     
         </body>

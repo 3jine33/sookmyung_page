@@ -7,33 +7,68 @@
     <!DOCTYPE html>
     <html>
         <head>
-
+            <style>
+                .container{
+                    text-align: right;
+                    margin-top:150px;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    position: relative;
+                }
+                .textRight{
+                    text-align: right;
+                    width: 1300px;
+                    position: relative;
+                    font-weight: bold;
+                    font-size: 10.6pt;
+                }
+                .libContext{
+                    font-size: 11.5pt;
+                    text-align: left;
+                    margin-left:150px;
+                    margin-top:100px;
+                    position: relative;
+                }
+                .title{
+                    float: left;
+                    margin-left: 70px;
+                    font-size: 26pt;
+                    font-weight: bold;
+                }
+            </style>
         </head>
 
         <body>
-            <h1>book_result.html</h1>
+            <h1></h1>
 
-            <!--필터링(검색)-->    
-            <form action="{% url 'libraryapp:book_result' %}" method="get">
-                    <input type="search" placeholder="책제목을 입력하세요" name="query">
-                    <input type="submit" name="" value="검색">
-                </form>
+            <!--필터링(검색)-->
+               <div class = "container">
+                   <p class="title">검색결과</p>
+                   <form action="{% url 'libraryapp:book_result' %}" method="get">
+                       <input type="search" placeholder="책제목을 입력하세요" name="query" style="text-align: center">
+                       <input type="submit" name="" value="검색">
+                   </form>
+               </div>
+
     
 
             <!--검색 결과-->
-            ----검색결과----<br><br>
-            {% for result in result.all %}
-                <a href="{% url 'libraryapp:book_detail' result.id %}">{{ result.title }}</a> <br>
+            <div class="libContext">
+                {% for result in result.all %}
+                <a href="{% url 'libraryapp:book_detail' result.id %}" style="font-weight: bold; font-size: 14.5pt; color: #1D375F;">{{ result.title }}</a> <br>
                 {{ result.author }} <br>
                 {{ result.publisher }}<br>
                 <br>
-            {% endfor %}
+                {% endfor %}
+            </div>
 
             <br>
             <!--superuser에게만 글쓰기 권한 주기-->
-            {% if user.is_superuser %}
-                <a href="{% url 'libraryapp:book_register' %}">글쓰기</a><br>
-            {% endif %}
+            <div class="textRight">
+                {% if user.is_superuser %}
+                <a href="{% url 'libraryapp:book_register' %}" style="color: #1D375F;">글쓰기</a><br>
+                {% endif %}
+            </div>
 
         </body>
     </html>
