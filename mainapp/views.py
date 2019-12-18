@@ -55,3 +55,6 @@ def notice_delete(request, notice_id):
     notice = get_object_or_404(Notice, pk=notice_id)
     notice.delete()
     return redirect('mainapp:notice_list')
+
+def weather(request):
+    return render(request, 'mainapp/weather.html')

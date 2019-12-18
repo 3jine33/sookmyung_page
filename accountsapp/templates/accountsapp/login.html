@@ -5,13 +5,11 @@
     <!DOCTYPE html>
     <html>
         <head>
-            <style>
-            
-            </style>
+
         </head>
 
-        <body>
-            <h1>login.html</h1>
+        <body style="text-align:center;">
+            <h1 style="margin-top:12%">Login</h1><br>
             {% if error %}
                 {{ error }}
             {% endif %}
@@ -19,9 +17,9 @@
             <form method="POST" action="{% url 'login' %}">
                 {% csrf_token %}
 
-                Username : <input name="username" type="text" value="">
-                <br>
-                Password : <input name="password" type="password" value="">
+                Username  <input name="username" type="text" value="">
+                <br><br>
+                Password  <input name="password" type="password" value="">
                 <br><br>
                 <input type="submit" value="로그인"> 
             </form>

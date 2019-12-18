@@ -4,52 +4,52 @@
 
 <head>
     <style type="text/css">
-/*네비게이션*/
-#list{
-margin:0;
-top:0;
-width:100%;
-background-color:#003087!important;
-opacity:0.9;
-font-size:16px;
-z-index:200;
-position:fixed;
- }
+        /*네비게이션*/
+        #list{
+        margin:0;
+        top:0;
+        width:100%;
+        background-color:#003087!important;
+        opacity:0.9;
+        font-size:16px;
+        z-index:200;
+        position:fixed;
+        }
 
 
-.nav-item{
-margin: 20px 0px 20px 0px;
-padding:0px;
-color : white;
-text-align:center;
-width:150px;}
-/*글씨색 변경*/
+        .nav-item{
+        margin: 20px 0px 20px 0px;
+        padding:0px;
+        color : white;
+        text-align:center;
+        width:150px;}
+        /*글씨색 변경*/
 
 
 
-/*메인메뉴에 마우스 올리면 보이는 효과*/
-.navbar li:hover .nav-link{
-  transition:all .5s ease;/*지연효과*/
-  background-color:#0056b3;
-}
+        /*메인메뉴에 마우스 올리면 보이는 효과*/
+        .navbar li:hover .nav-link{
+        transition:all .5s ease;/*지연효과*/
+        background-color:#0056b3;
+        }
 
-footer{
-margin-top: 150px;
-padding-top:50px;
-padding-bottom:64px;
-background-color:#262523;
-width:100%;
-color:#a1a1a1;
-font-size: 10pt;
-}
+        footer{
+        margin-top: 150px;
+        padding-top:50px;
+        padding-bottom:64px;
+        background-color:#262523;
+        width:100%;
+        color:#a1a1a1;
+        font-size: 10pt;
+        }
 
-.nav .navbar-nav{
-padding-top:0;
-}
-.nav-item .dropdown{
-padding-top:0!importants;
+        .nav .navbar-nav{
+        padding-top:0;
+        }
+        .nav-item .dropdown{
+        padding-top:0 !important;
 
-}
+        }
 
     </style>
 </head>
@@ -73,6 +73,9 @@ padding-top:0!importants;
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'sookplaceapp:sookplace_list' %}" style="color:white">숙플레이스</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="{% url 'mainapp:weather' %}" style="color:white">날씨정보<span class="sr-only">(current)</span></a>
             </li>
         </ul>
         </div>
@@ -99,7 +102,7 @@ padding-top:0!importants;
     </div>
     </div>
 </nav>
-
+<br><br><br>
 
 {% block content %}
 {% endblock %}
