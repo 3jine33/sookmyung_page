@@ -67,4 +67,5 @@ def transport(request):
     
     ys04_smfrontdoor = transportPrasing(ys04, smforntdoor, smforntdoor_ord)
     
+    
     return render(request, 'mainapp/transport.html', {'ys04_smfrontdoor': ys04_smfrontdoor})
