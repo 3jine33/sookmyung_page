@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Notice
 from .forms import NoticeForm
+from .crawling import transportPrasing
 
 
 # Create your views here.
@@ -60,4 +61,10 @@ def weather(request):
     return render(request, 'mainapp/weather.html')
 
 def transport(request):
-    return render(request, 'mainapp/transport.html')
+    ys04 = "101900002" ##용산04
+    smforntdoor = "102000140"  ##숙명여대정문
+    smforntdoor_ord = "22"
+    
+    ys04_smfrontdoor = transportPrasing(ys04, smforntdoor, smforntdoor_ord)
+    
+    return render(request, 'mainapp/transport.html', {'ys04_smfrontdoor': ys04_smfrontdoor})
