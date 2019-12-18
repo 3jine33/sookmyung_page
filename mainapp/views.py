@@ -58,3 +58,6 @@ def notice_delete(request, notice_id):
 
 def weather(request):
     return render(request, 'mainapp/weather.html')
+
+def transport(request):
+    return render(request, 'mainapp/transport.html')
