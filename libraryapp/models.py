@@ -19,7 +19,6 @@ class Book(models.Model):
     describe = models.TextField()  ##책 소개
     photo = models.ImageField(null=True,blank=True, upload_to='library/') ##책 사진
 
-
     def __str__(self):
         return self.title    
 

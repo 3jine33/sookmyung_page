@@ -62,4 +62,3 @@ def book_result(request):
         return render(request,'libraryapp/book_result.html',{'result':book_object} )
     else :
         return redirect('libraryapp:book_list')
-
