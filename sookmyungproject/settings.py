@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mainapp.apps.MainappConfig',
     'libraryapp.apps.LibraryappConfig',
-    'transportapp.apps.TransportappConfig',
     'accountsapp.apps.AccountsappConfig',
     'sookplaceapp.apps.SookplaceappConfig',
     'bootstrap4'

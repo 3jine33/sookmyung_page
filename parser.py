@@ -19,10 +19,8 @@ def parse_blog():
         data[title.text] = title.get('href')
     return data
 
-
 if __name__=='__main__':
     blog_data_dict = parse_blog()
     for t, l in blog_data_dict.items():
         l_edit = "http://www.sookmyung.ac.kr/"+l
         Notice(title=t, link=l_edit).save()
-        

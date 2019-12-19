@@ -62,10 +62,37 @@ def weather(request):
 
 def transport(request):
     ys04 = "101900002" ##용산04
-    smforntdoor = "102000140"  ##숙명여대정문
-    smforntdoor_ord = "22"
+
+    ys_smlibrary = "102000137"  ##숙명여대 도서관앞
+    ys_smlibrary_ord="21"
+    ys_smforntdoor = "102000140"  ##숙명여대정문
+    ys_smforntdoor_ord = "22"
+    ys_smbackgate = "102000141"  ##숙명여대 후문
+    ys_smbackgate_ord = "23"
+
+    bus400 = "100100596" ##400번 버스
+    d_smfrontdoor = "102000139"  ##숙명여대 정문
+    d_smfrontdoor_ord = "41"  
+    d_smlibrary = "102000138"  ##숙명여대도서관앞
+    d_smlibrary_ord = "42"
+    u_smlibrary = "102000137"  ##숙명여대도서관앞
+    u_smlibrary_ord = "63"
+    u_smfrontdoor = "102000140"  ##숙명여대정문
+    u_smfrontdoor_ord = "64"
+    u_smbackgate = "102000141"  ##숙명여대후문
+    u_smbackgate_ord = "65"
     
-    ys04_smfrontdoor = transportPrasing(ys04, smforntdoor, smforntdoor_ord)
-    
-    
-    return render(request, 'mainapp/transport.html', {'ys04_smfrontdoor': ys04_smfrontdoor})
+    ys04_smlibrary = transportPrasing(ys04, ys_smlibrary, ys_smlibrary_ord)
+    ys04_smfrontdoor = transportPrasing(ys04, ys_smforntdoor, ys_smforntdoor_ord)
+    ys04_smbackgate = transportPrasing(ys04, ys_smbackgate, ys_smbackgate_ord)
+
+    bus400_d_smfrontdoor = transportPrasing(bus400, d_smfrontdoor, d_smfrontdoor_ord)
+    bus400_d_smlibrary = transportPrasing(bus400, d_smlibrary, d_smlibrary_ord)
+    bus400_u_smlibrary = transportPrasing(bus400, u_smlibrary, u_smlibrary_ord)
+    bus400_u_smfrontdoor = transportPrasing(bus400, u_smfrontdoor, u_smfrontdoor_ord)
+    bus400_u_smbackgate = transportPrasing(bus400, u_smbackgate, u_smbackgate_ord)
+
+    return render(request, 'mainapp/transport.html', {'ys04_smlibrary':ys04_smlibrary, 'ys04_smfrontdoor':ys04_smfrontdoor, 'ys04_smbackgate':ys04_smbackgate, 
+    'bus400_d_smfrontdoor':bus400_d_smfrontdoor, 'bus400_d_smlibrary':bus400_d_smlibrary, 
+    'bus400_u_smlibrary':bus400_u_smlibrary, 'bus400_u_smfrontdoor':bus400_u_smfrontdoor, 'bus400_u_smbackgate':bus400_u_smbackgate}
+)

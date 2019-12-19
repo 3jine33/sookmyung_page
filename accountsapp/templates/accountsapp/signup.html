@@ -8,19 +8,19 @@
 
         </head>
 
-        <body>
-            <h1>signup.html</h1>
+        <body style="text-align:center;">
+            <h1 style="margin-top:12%">Sign up</h1><br>
             {% if error %}
                 {{ error }}
             {% endif %}
 
             <form method="POST" action="{% url 'signup' %}">
                 {% csrf_token %}
-                Username : <input name="username" type="text" value="">
-                <br>
-                Password : <input name="password1" type="password" value="">
-                <br>
-                Confirm Password : <input name="password2" type="password" value="">
+                Username  <input name="username" type="text" value="">
+                <br><br>
+                Password  <input name="password1" type="password" value="">
+                <br><br>
+                <span style="margin-left: -60px">Confirm Password  <input name="password2" type="password" value=""></span>
                 <br><br>
                 <input type="submit" value="회원가입">
             </form>

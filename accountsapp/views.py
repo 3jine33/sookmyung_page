@@ -6,7 +6,7 @@ from django.contrib import auth
 
 def signup(request):
     if request.method == 'POST':
-       # User has info and wants an account now! 즉 [signup!]버튼을 눌렀을 때 일어나는 일
+       # [signup]버튼을 눌렀을 때 일어나는 일
        if request.POST['password1'] == request.POST['password2']:
            try:
                user = User.objects.get(username=request.POST['username'])
