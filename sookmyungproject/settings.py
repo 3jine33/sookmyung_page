@@ -74,6 +74,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'sookmyungproject.wsgi.application'
 
+ALLOWED_HOSTS = ['ec2-52-79-233-48.ap-northeast-2.compute.amazonaws.com']
+
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
@@ -103,6 +105,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
 
 
 # Internationalization
