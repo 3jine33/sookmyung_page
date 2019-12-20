@@ -12,7 +12,7 @@ class Book(models.Model):
 
     title= models.CharField(max_length=255)  ##책 제목 
     author= models.CharField(max_length=255)  ## 책 저자
-    category=models.CharField(max_length=10, choices=CATEGORY)  ##책 카테고리
+    category=models.CharField(max_length=255, choices=CATEGORY)  ##책 카테고리
     publisher= models.CharField(max_length=255)  ## 책 출판사
     pub_year= models.IntegerField()  ##책 출판년도
     location= models.CharField(max_length=255)  ##책 소장위치
